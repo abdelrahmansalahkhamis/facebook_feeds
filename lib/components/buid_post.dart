@@ -1,5 +1,6 @@
 import 'package:facebook_demo_task/models/post_model.dart';
 import 'package:flutter/material.dart';
+import 'package:universal_io/prefer_universal/io.dart';
 
 class BuildPost extends StatelessWidget {
   PostModel model;
@@ -93,12 +94,17 @@ class BuildPost extends StatelessWidget {
                   ],
                 ),
                 //Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  // icon: Icon(Platform.isAndroid
-                  //     ? Icons.more_vert
-                  //     : Icons.more_horiz),
-                  icon: Icon(Icons.more_horiz),
+                Expanded(
+                  child:
+                      Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Platform.isAndroid
+                          ? Icons.more_vert
+                          : Icons.more_horiz),
+                      //icon: Icon(Icons.more_horiz),
+                    ),
+                  ]),
                 ),
               ],
             ),
@@ -121,7 +127,7 @@ class BuildPost extends StatelessWidget {
           height: 1.0,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.only(left: 8.0, right: 18.0),
           child: Expanded(
             child: Row(
               children: [
@@ -157,23 +163,24 @@ class BuildPost extends StatelessWidget {
                     )
                   ],
                 ),
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        '${model.shares}',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      SizedBox(
-                        width: 3.0,
-                      ),
-                      Text(
-                        'Shares',
-                        style: TextStyle(color: Colors.black),
-                      )
-                    ],
-                  ),
+                SizedBox(
+                  width: 20.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '${model.shares}',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    SizedBox(
+                      width: 3.0,
+                    ),
+                    Text(
+                      'Shares',
+                      style: TextStyle(color: Colors.black),
+                    )
+                  ],
                 )
               ],
             ),

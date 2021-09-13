@@ -84,7 +84,7 @@ class FeedsPage extends StatelessWidget {
                               if (index == 1) {
                                 return BuildStory();
                               }
-                              return BuildPost(posts[index - 2]);
+                              return BuildPost(cubit.model[index - 2]);
                             },
                             separatorBuilder: (context, index) {
                               return separator(7.0);

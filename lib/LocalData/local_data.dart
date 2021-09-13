@@ -1,6 +1,6 @@
 import 'package:facebook_demo_task/models/post_model.dart';
 
-List<PostModel> posts = [
+List<PostModel> postsList = [
   PostModel('Abdelrahman Salah', 'images/abdelrahman.jpg',
       ['images/elentra.jpg'], '- This is my car 🤣', 106, 66, 53),
   PostModel('FUnMix.eu Hrvatski', 'images/FunMix.JPG', ['images/FunMix.JPG'],
