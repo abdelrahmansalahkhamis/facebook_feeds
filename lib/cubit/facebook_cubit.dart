@@ -60,10 +60,9 @@ class FacebookCubit extends Cubit<FacebookStates> {
   void loadPosts() {
     emit(FacebookLoadingPostState());
     Timer(const Duration(seconds: 5), () {
-      postsLoaded = true;
-
       print("Yeah, this line is printed after 3 seconds");
       model = postsList;
+      postsLoaded = true;
       emit(FacebookSuccessLoadingPostState());
     });
   }

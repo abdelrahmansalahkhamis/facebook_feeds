@@ -28,70 +28,73 @@ class FeedsPage extends StatelessWidget {
             ? Center(
                 child: CircularProgressIndicator(),
               )
-            : Scaffold(
-                body: NestedScrollView(
-                    scrollDirection: Axis.vertical,
-                    headerSliverBuilder: (context, innerBoxIsScrolled) => [
-                          SliverAppBar(
-                            bottom: PreferredSize(
-                                child: Container(
-                                  color: Colors.black12,
-                                  height: 0.5,
-                                ),
-                                preferredSize: Size.fromHeight(1.0)),
-                            elevation: 10.0,
-                            backgroundColor: Colors.white10,
-                            floating: true,
-                            snap: true,
-                            title: Text(
-                              'facebook',
-                              style: TextStyle(
-                                  color: Colors.blueAccent,
-                                  fontSize: 30.0,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                            actions: [
-                              CircleButton(
-                                icon: Icons.search,
-                                iconSize: 30.0,
-                                onPressed: () => print('Search'),
+            : GestureDetector(
+                onTap: () => FocusScope.of(context).unfocus(),
+                child: Scaffold(
+                  body: NestedScrollView(
+                      scrollDirection: Axis.vertical,
+                      headerSliverBuilder: (context, innerBoxIsScrolled) => [
+                            SliverAppBar(
+                              bottom: PreferredSize(
+                                  child: Container(
+                                    color: Colors.black12,
+                                    height: 0.5,
+                                  ),
+                                  preferredSize: Size.fromHeight(1.0)),
+                              elevation: 0.0,
+                              backgroundColor: Colors.white10,
+                              floating: true,
+                              snap: true,
+                              title: Text(
+                                'facebook',
+                                style: TextStyle(
+                                    color: Colors.blueAccent,
+                                    fontSize: 30.0,
+                                    fontWeight: FontWeight.w800),
                               ),
-                              Ink(
-                                padding: EdgeInsets.only(right: 10.0),
-                                decoration: ShapeDecoration(
-                                  color: Color(0x011AAAAAA),
-                                  shape: CircleBorder(),
+                              actions: [
+                                CircleButton(
+                                  icon: Icons.search,
+                                  iconSize: 30.0,
+                                  onPressed: () => print('Search'),
                                 ),
-                                child: IconButton(
-                                  icon: Image.asset('images/messenger.jpeg'),
-                                  color: Colors.white,
-                                  onPressed: () {},
+                                Ink(
+                                  padding: EdgeInsets.only(right: 10.0),
+                                  decoration: ShapeDecoration(
+                                    color: Color(0x011AAAAAA),
+                                    shape: CircleBorder(),
+                                  ),
+                                  child: IconButton(
+                                    icon: Image.asset('images/messenger.jpeg'),
+                                    color: Colors.white,
+                                    onPressed: () {},
+                                  ),
                                 ),
-                              ),
-                            ],
-                          )
-                        ],
-                    body: MediaQuery.removePadding(
-                      context: context,
-                      removeTop: true,
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 10.0),
-                        child: ListView.separated(
-                            itemBuilder: (context, index) {
-                              if (index == 0) {
-                                return BuildNewPost();
-                              }
-                              if (index == 1) {
-                                return BuildStory();
-                              }
-                              return BuildPost(cubit.model[index - 2]);
-                            },
-                            separatorBuilder: (context, index) {
-                              return separator(7.0);
-                            },
-                            itemCount: 7),
-                      ),
-                    )),
+                              ],
+                            )
+                          ],
+                      body: MediaQuery.removePadding(
+                        context: context,
+                        removeTop: true,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 10.0),
+                          child: ListView.separated(
+                              itemBuilder: (context, index) {
+                                if (index == 0) {
+                                  return BuildNewPost();
+                                }
+                                if (index == 1) {
+                                  return BuildStory();
+                                }
+                                return BuildPost(cubit.model[index - 2]);
+                              },
+                              separatorBuilder: (context, index) {
+                                return separator(7.0);
+                              },
+                              itemCount: 7),
+                        ),
+                      )),
+                ),
               );
       },
     );

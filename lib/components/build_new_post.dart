@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class BuildNewPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return buildNewPost();
+    return buildNewPost(context);
   }
 
-  Widget buildNewPost() {
+  Widget buildNewPost(context) {
     return Container(
         width: double.infinity,
         child: Column(
@@ -30,10 +30,9 @@ class BuildNewPost extends StatelessWidget {
                   ),
                   Flexible(
                     child: TextField(
-                      decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'What\'s in your mind?'),
-                    ),
+                        decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'What\'s in your mind?')),
                   )
                 ],
               ),
@@ -46,13 +45,14 @@ class BuildNewPost extends StatelessWidget {
               endIndent: 0,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              padding: const EdgeInsets.only(left: 20, right: 10),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
+                //crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Expanded(
+                  Flexible(
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         IconButton(
                             onPressed: () {},
@@ -65,14 +65,15 @@ class BuildNewPost extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.black, fontWeight: FontWeight.w600),
                         ),
-                        Spacer(),
-                        Container(width: 1.0, height: 25.0, color: Colors.grey),
+                        //Spacer(),
                       ],
                     ),
                   ),
-                  SizedBox(width: 20.0),
-                  Expanded(
+                  Container(width: 1.0, height: 25.0, color: Colors.grey),
+                  //SizedBox(width: 20.0),
+                  Flexible(
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       //mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         IconButton(
@@ -83,16 +84,17 @@ class BuildNewPost extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.black, fontWeight: FontWeight.w600),
                         ),
-                        Spacer(),
-                        Container(width: 1.0, height: 25.0, color: Colors.grey),
+                        //Spacer(),
                       ],
                     ),
                   ),
-                  SizedBox(
-                    width: 20.0,
-                  ),
-                  Expanded(
+                  Container(width: 1.0, height: 25.0, color: Colors.grey),
+                  // SizedBox(
+                  //   width: 20.0,
+                  // ),
+                  Flexible(
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         IconButton(
                             onPressed: () {},

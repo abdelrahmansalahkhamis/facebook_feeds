@@ -94,7 +94,7 @@ class BuildPost extends StatelessWidget {
                   ],
                 ),
                 //Spacer(),
-                Expanded(
+                Flexible(
                   child:
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                     IconButton(
@@ -128,10 +128,10 @@ class BuildPost extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(left: 8.0, right: 18.0),
-          child: Expanded(
+          child: Flexible(
             child: Row(
               children: [
-                Expanded(
+                Flexible(
                   child: Row(
                     children: [
                       IconButton(
@@ -201,7 +201,7 @@ class BuildPost extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Row(
             children: [
-              Expanded(
+              Flexible(
                 child: Row(
                   children: [
                     IconButton(
@@ -217,7 +217,7 @@ class BuildPost extends StatelessWidget {
               SizedBox(
                 width: 20.0,
               ),
-              Expanded(
+              Flexible(
                 child: Row(
                   children: [
                     IconButton(
@@ -233,7 +233,7 @@ class BuildPost extends StatelessWidget {
               SizedBox(
                 width: 20.0,
               ),
-              Expanded(
+              Flexible(
                 child: Row(
                   children: [
                     IconButton(onPressed: () {}, icon: Icon(Icons.shortcut)),
@@ -256,7 +256,7 @@ class BuildPost extends StatelessWidget {
       if (image.length > 1) {
         return SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Expanded(
+          child: Flexible(
             child: Row(
               children: [
                 Image(
