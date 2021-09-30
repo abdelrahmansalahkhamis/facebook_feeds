@@ -24,6 +24,7 @@ class FeedsPage extends StatelessWidget {
       },
       builder: (context, state) {
         var cubit = FacebookCubit.get(context);
+        print('${cubit} : cubit');
         return !cubit.postsLoaded
             ? Center(
                 child: CircularProgressIndicator(),
@@ -32,7 +33,6 @@ class FeedsPage extends StatelessWidget {
                 onTap: () => FocusScope.of(context).unfocus(),
                 child: Scaffold(
                   body: NestedScrollView(
-                    
                       scrollDirection: Axis.vertical,
                       headerSliverBuilder: (context, innerBoxIsScrolled) => [
                             SliverAppBar(
