@@ -32,6 +32,7 @@ class FeedsPage extends StatelessWidget {
                 onTap: () => FocusScope.of(context).unfocus(),
                 child: Scaffold(
                   body: NestedScrollView(
+                    
                       scrollDirection: Axis.vertical,
                       headerSliverBuilder: (context, innerBoxIsScrolled) => [
                             SliverAppBar(
