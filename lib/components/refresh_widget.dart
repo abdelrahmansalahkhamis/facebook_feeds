@@ -10,10 +10,13 @@ class RefreshWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (Platform.isAndroid)
-      return buildAndroidList(child, onRefresh);
-    else
-      return buildIOSList(child, onRefresh);
+    // if (Platform.isAndroid)
+    //   return buildAndroidList(child, onRefresh);
+    // else
+    //   return buildIOSList(child, onRefresh);
+    return Platform.isAndroid
+        ? buildAndroidList(child, onRefresh)
+        : buildIOSList(child, onRefresh);
   }
 
   Widget buildAndroidList(child, onRefresh) =>
