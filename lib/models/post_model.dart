@@ -6,12 +6,13 @@ class PostModel {
   int? likes;
   int? comments;
   int? shares;
+  late bool online;
 
   // PostModel(this.postUsername,
   //     {this.image, this.text, this.likes, this.comments, this.shares});
 
   PostModel(String postUsername, String userProfileImage, List<String>? image,
-      String? text, int? likes, int? comments, int? shares) {
+      String? text, int? likes, int? comments, int? shares, bool online) {
     this.postUsername = postUsername;
     this.userprofileImage = userProfileImage;
     this.image = image;
@@ -19,5 +20,6 @@ class PostModel {
     this.likes = likes;
     this.comments = comments;
     this.shares = shares;
+    this.online = online;
   }
 }

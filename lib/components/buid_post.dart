@@ -38,18 +38,23 @@ class BuildPost extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white, width: 2.0),
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.green, width: 6.0),
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          color: Colors.green),
-                    ),
-                  )
+                  model.online
+                      ? Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2.0),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15.0)),
+                          ),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.green, width: 6.0),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15.0)),
+                                color: Colors.green),
+                          ),
+                        )
+                      : Container()
                 ]),
                 SizedBox(
                   width: 10.0,
@@ -94,7 +99,7 @@ class BuildPost extends StatelessWidget {
                   ],
                 ),
                 //Spacer(),
-                Flexible(
+                Expanded(
                   child:
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                     IconButton(
@@ -128,62 +133,60 @@ class BuildPost extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(left: 8.0, right: 18.0),
-          child: Flexible(
-            child: Row(
-              children: [
-                Flexible(
-                  child: Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.thumb_up,
-                            color: Colors.blue,
-                          )),
-                      Text(
-                        '${model.likes}',
-                        style: TextStyle(color: Colors.black),
-                      )
-                    ],
+          child: Row(
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.thumb_up,
+                          color: Colors.blue,
+                        )),
+                    Text(
+                      '${model.likes}',
+                      style: TextStyle(color: Colors.black),
+                    )
+                  ],
+                ),
+              ),
+              //Spacer(),
+              Row(
+                children: [
+                  Text(
+                    '${model.comments}',
+                    style: TextStyle(color: Colors.black),
                   ),
-                ),
-                //Spacer(),
-                Row(
-                  children: [
-                    Text(
-                      '${model.comments}',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    SizedBox(
-                      width: 3.0,
-                    ),
-                    Text(
-                      'Comments',
-                      style: TextStyle(color: Colors.black),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  width: 20.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '${model.shares}',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    SizedBox(
-                      width: 3.0,
-                    ),
-                    Text(
-                      'Shares',
-                      style: TextStyle(color: Colors.black),
-                    )
-                  ],
-                )
-              ],
-            ),
+                  SizedBox(
+                    width: 3.0,
+                  ),
+                  Text(
+                    'Comments',
+                    style: TextStyle(color: Colors.black),
+                  )
+                ],
+              ),
+              SizedBox(
+                width: 20.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '${model.shares}',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  SizedBox(
+                    width: 3.0,
+                  ),
+                  Text(
+                    'Shares',
+                    style: TextStyle(color: Colors.black),
+                  )
+                ],
+              )
+            ],
           ),
         ),
         SizedBox(
@@ -201,47 +204,92 @@ class BuildPost extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Row(
             children: [
-              Flexible(
-                child: Row(
-                  children: [
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.thumb_up_off_alt_outlined)),
-                    Text(
-                      'Likes',
-                      style: TextStyle(color: Colors.black),
-                    )
-                  ],
+              Expanded(
+                // child: InkWell(
+                //   onTap: () {},
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.start,
+                //     children: [
+                //       IconButton(
+                //           onPressed: () {},
+                //           icon: Icon(Icons.thumb_up_off_alt_outlined)),
+                //       Text(
+                //         'Like',
+                //         style: TextStyle(color: Colors.black),
+                //       )
+                //     ],
+                //   ),
+                // ),
+                child: MaterialButton(
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(Icons.thumb_up_off_alt_outlined),
+                      SizedBox(width: 10.0),
+                      Text('Like')
+                    ],
+                  ),
                 ),
               ),
-              SizedBox(
-                width: 20.0,
-              ),
-              Flexible(
-                child: Row(
-                  children: [
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.messenger_outline_rounded)),
-                    Text(
-                      'Comment',
-                      style: TextStyle(color: Colors.black),
-                    )
-                  ],
+              // SizedBox(
+              //   width: 20.0,
+              // ),
+              Expanded(
+                // child: InkWell(
+                //   onTap: () {},
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       IconButton(
+                //           onPressed: () {},
+                //           icon: Icon(Icons.messenger_outline_rounded)),
+                //       Text(
+                //         'Comment',
+                //         style: TextStyle(color: Colors.black),
+                //       )
+                //     ],
+                //   ),
+                // ),
+                child: MaterialButton(
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.messenger_outline_rounded),
+                      SizedBox(width: 10.0),
+                      Text('Comment')
+                    ],
+                  ),
                 ),
               ),
-              SizedBox(
-                width: 20.0,
-              ),
-              Flexible(
-                child: Row(
-                  children: [
-                    IconButton(onPressed: () {}, icon: Icon(Icons.shortcut)),
-                    Text(
-                      'Share',
-                      style: TextStyle(color: Colors.black),
-                    )
-                  ],
+              // SizedBox(
+              //   width: 20.0,
+              // ),
+              Expanded(
+                // child: InkWell(
+                //   onTap: () {},
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       IconButton(onPressed: () {}, icon: Icon(Icons.shortcut)),
+                //       Text(
+                //         'Share',
+                //         style: TextStyle(color: Colors.black),
+                //       )
+                //     ],
+                //   ),
+                // ),
+                child: MaterialButton(
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.shortcut),
+                      SizedBox(width: 10.0),
+                      Text('Share')
+                    ],
+                  ),
                 ),
               )
             ],
@@ -254,26 +302,18 @@ class BuildPost extends StatelessWidget {
   Widget addImage(context, image) {
     if (image != null) {
       if (image.length > 1) {
-        return SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Flexible(
-            child: Row(
-              children: [
-                Image(
-                  image: AssetImage('${image[0]}'),
-                  height: MediaQuery.of(context).size.height / 2.5,
-                  fit: BoxFit.cover,
-                ),
-                SizedBox(
-                  width: 1.0,
-                ),
-                Image(
-                  image: AssetImage('${image[1]}'),
-                  height: MediaQuery.of(context).size.height / 2.5,
-                  fit: BoxFit.cover,
-                ),
-              ],
-            ),
+        return SizedBox(
+          height: MediaQuery.of(context).size.height / 2.5,
+          child: ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return Image(
+                image: AssetImage('${image[index]}'),
+                fit: BoxFit.cover,
+              );
+            },
+            itemCount: image.length,
           ),
         );
       } else {

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:facebook_demo_task/LocalData/local_data.dart';
+import 'package:facebook_demo_task/components/comment_screen.dart';
 import 'package:facebook_demo_task/models/post_model.dart';
 import 'package:facebook_demo_task/tab_controllers/feeds_page.dart';
 import 'package:facebook_demo_task/tab_controllers/menu.dart';
@@ -57,7 +58,7 @@ class FacebookCubit extends Cubit<FacebookStates> {
 
   List<PostModel> model = [];
 
-  void loadPosts() {
+  Future loadPosts() async {
     emit(FacebookLoadingPostState());
     Timer(const Duration(seconds: 5), () {
       print("Yeah, this line is printed after 3 seconds");
@@ -65,5 +66,10 @@ class FacebookCubit extends Cubit<FacebookStates> {
       postsLoaded = true;
       emit(FacebookSuccessLoadingPostState());
     });
+  }
+
+  void commentOnPost(context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => CommentsScreen()));
   }
 }

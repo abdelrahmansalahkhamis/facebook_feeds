@@ -4,6 +4,7 @@ import 'package:facebook_demo_task/LocalData/local_data.dart';
 import 'package:facebook_demo_task/components/buid_post.dart';
 import 'package:facebook_demo_task/components/build_new_post.dart';
 import 'package:facebook_demo_task/components/build_story.dart';
+import 'package:facebook_demo_task/components/refresh_widget.dart';
 import 'package:facebook_demo_task/cubit/facebook_cubit.dart';
 import 'package:facebook_demo_task/models/post_model.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,6 @@ class FeedsPage extends StatelessWidget {
       },
       builder: (context, state) {
         var cubit = FacebookCubit.get(context);
-        print('${cubit} : cubit');
         return !cubit.postsLoaded
             ? Center(
                 child: CircularProgressIndicator(),
@@ -79,20 +79,28 @@ class FeedsPage extends StatelessWidget {
                         removeTop: true,
                         child: Padding(
                           padding: EdgeInsets.only(top: 10.0),
-                          child: ListView.separated(
-                              itemBuilder: (context, index) {
-                                if (index == 0) {
-                                  return BuildNewPost();
-                                }
-                                if (index == 1) {
-                                  return BuildStory();
-                                }
-                                return BuildPost(cubit.model[index - 2]);
-                              },
-                              separatorBuilder: (context, index) {
-                                return separator(7.0);
-                              },
-                              itemCount: 7),
+                          child: RefreshWidget(
+                            () => cubit.loadPosts(),
+                            ListView.separated(
+                                shrinkWrap: true,
+                                primary: false,
+                                itemBuilder: (context, index) {
+                                  if (index == 0) {
+                                    return BuildNewPost();
+                                    //return Container();
+                                  }
+                                  if (index == 1) {
+                                    return BuildStory();
+                                    //return Container();
+                                  }
+                                  return BuildPost(cubit.model[index - 2]);
+                                  //return Container();
+                                },
+                                separatorBuilder: (context, index) {
+                                  return separator(7.0);
+                                },
+                                itemCount: 7),
+                          ),
                         ),
                       )),
                 ),
